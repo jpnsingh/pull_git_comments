@@ -2,13 +2,18 @@
 <html>
 <head>
   <title>Pull Git Comments</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<%= render 'partials/navbar' %>
 
+<div class="container">
+  <%= yield %>
+</div>
+
+<%= render 'partials/login_form_modal' %>
 </body>
 </html>
