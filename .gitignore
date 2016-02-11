@@ -16,5 +16,21 @@
 !/log/.keep
 /tmp
 
-# Ignore idea file
+# Rubymine
 .idea
+spec/javascripts/fixtures/rspec*
+spec/fixtures/reports/iwr*
+spec/fixtures/iwr_fixtures.tgz
+
+# Ignore all logfiles and tempfiles.
+log/*.log
+lib/daemons/**/log/
+tmp
+log/*.pid
+*.swp
+*.swo
+.rvmrc
+.ruby-version
+.ruby-gemset
+*.pid
+.versions.conf
