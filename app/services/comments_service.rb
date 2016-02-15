@@ -1,17 +1,7 @@
 require 'octokit'
 
 class CommentsService
-  def authenticate_user
-    # using configure
-    # Octokit.configure do |c|
-    #   c.login = 'jpnsingh'
-    #   c.password = '****'
-    # end
-
-    # using username and password
-    # Octokit::Client.new(:login => 'jpnsingh', :password => '****')
-
-    # using access token
+  def authenticate_use
     Octokit::Client.new(:access_token => "96d38330c6fb4e930882cc26a2e77d29e68a9836")
   end
 end
