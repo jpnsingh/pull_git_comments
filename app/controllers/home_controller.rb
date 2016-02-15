@@ -10,13 +10,6 @@ class HomeController < ApplicationController
 
   end
 
-  def pull_request
-    # client = authenticate_user
-    #
-    # @comments = client.issue_comments(pull_request_params[:repo], pull_request_params[:id])
-
-  end
-
   def get_comments
     client = authenticate_user
 

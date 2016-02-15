@@ -1,7 +1,7 @@
 require 'octokit'
 
 class CommentsService
-  def authenticate_use
+  def authenticate_user
     Octokit::Client.new(:access_token => "96d38330c6fb4e930882cc26a2e77d29e68a9836")
   end
 end
