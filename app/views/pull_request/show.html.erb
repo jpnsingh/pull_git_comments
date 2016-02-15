@@ -1,15 +1,30 @@
-<section class="pull-request-comments-list">
-  <% @comments.each do |comment| %>
-      <div class="well">
-        <div class="comment">
-          <h4 class="media-heading"><%= comment.user.login %> commented:</h4>
-          <div>
-            <small><cite><%= time_ago_in_words comment.created_at %> ago</cite></small>
+<div class="lead well">
+  <p>Pull Request: <%= @params[:repo] + '/' + @params[:id] %></p>
+</div>
+
+<div class="row">
+  <div class="col-sm-10 col-sm-offset-1">
+    <div class="comments">
+      <% @comments.each do |comment| %>
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object" src="<%= comment.gravatar %>">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading"><%= comment.user.login %> commented:</h4>
+              <div class="time">
+                <small><cite><%= time_ago_in_words comment.created_at %> ago</cite></small>
+              </div>
+              <%= comment.body %>
+            </div>
           </div>
-          <div>
-            <%= comment.body %>
-          </div>
-        </div>
-      </div>
-  <% end %>
-</section>
+      <% end %>
+    </div>
+
+    <% if @comments.empty? %>
+        <div class="alert alert-info alert-sm">No one has commented on this pull request yet...</div>
+    <% end %>
+  </div>
+</div>

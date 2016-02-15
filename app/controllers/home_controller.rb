@@ -13,7 +13,8 @@ class HomeController < ApplicationController
   def get_comments
     client = authenticate_user
 
-    @comments = client.issue_comments(pull_request_params[:repo], pull_request_params[:id]).reverse
+    @params = pull_request_params
+    @comments = client.issue_comments(@params[:repo], @params[:id]).reverse
 
     render 'pull_request/show'
     # render 'home/index'
