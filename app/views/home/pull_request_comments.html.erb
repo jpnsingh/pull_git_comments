@@ -1,5 +1,12 @@
 <div class="lead well">
-  <p>Pull Request: <%= @params[:repo] + '/' + @params[:id] %></p>
+  <div class="row">
+    <div class="col-md-6">
+      <p>Pull Request: <%= @params[:repo] + '/' + @params[:id] %></p>
+    </div>
+    <div class="pull-right">
+      <a href="#/export" title="Export to csv"><i class="fa fa-file-excel-o fa-lg"></i></a>
+    </div>
+  </div>
 </div>
 
 <div class="row">
@@ -9,11 +16,11 @@
           <div class="media">
             <div class="media-left">
               <a href="#">
-                <img class="media-object" src="<%= comment.gravatar %>">
+                <img class="media-object" src="<%= comment.user.avatar_url %>&s=80">
               </a>
             </div>
             <div class="media-body">
-              <h4 class="media-heading"><%= comment.user.login %> commented:</h4>
+              <h4 class="media-heading"><strong><%= comment.user.login %></strong> commented:</h4>
               <div class="time">
                 <small><cite><%= time_ago_in_words comment.created_at %> ago</cite></small>
               </div>
@@ -24,7 +31,7 @@
     </div>
 
     <% if @comments.empty? %>
-        <div class="alert alert-info alert-sm">No one has commented on this pull request yet...</div>
+        <div class="alert alert-info alert-sm">No one has commented here yet...</div>
     <% end %>
   </div>
 </div>

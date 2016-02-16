@@ -41,7 +41,13 @@ end
 
 puts '*********************************************************************'
 
-client.pull_request_comments("OnlifeHealth/liveon", 2040).each do |comment|
+# client.pull_request_comments("OnlifeHealth/liveon", 2006).each do |comment|
+comments = client.issue_comments("OnlifeHealth/liveon", 2006)
+
+puts comments.empty?
+
+comments.each do |comment|
+  p comment
   username = comment[:user][:login]
   post_date = comment[:created_at]
   content = comment[:body]

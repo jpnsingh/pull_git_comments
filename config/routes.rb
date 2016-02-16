@@ -3,10 +3,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get '/about' => 'home#about'
-  post '/get_comments' => 'home#get_comments'
-  get '/pull_request' => 'home#get_comments'
 
-  # resources :get_comments
+  post '/pull/comments' => 'home#comments'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

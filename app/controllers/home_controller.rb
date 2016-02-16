@@ -10,14 +10,14 @@ class HomeController < ApplicationController
 
   end
 
-  def get_comments
+  def comments
     client = authenticate_user
 
     @params = pull_request_params
-    @comments = client.issue_comments(@params[:repo], @params[:id]).reverse
+    @comments = client.issue_comments(@params[:repo], @params[:id])
+                    .concat(client.pull_request_comments(@params[:repo], @params[:id])).reverse
 
-    render 'pull_request/show'
-    # render 'home/index'
+    render 'home/pull_request_comments'
   end
 
   private
