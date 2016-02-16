@@ -49,5 +49,7 @@ group :development do
   gem 'octokit', '~> 4.2'
 
   gem 'font-awesome-rails'
+
+  gem 'angularjs-rails', '~> 1.4', '>= 1.4.8'
 end
 
