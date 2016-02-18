@@ -41,8 +41,8 @@ end
 
 puts '*********************************************************************'
 
-# client.pull_request_comments("OnlifeHealth/liveon", 2006).each do |comment|
-comments = client.issue_comments("OnlifeHealth/liveon", 2006)
+comments = client.pull_request_comments("OnlifeHealth/liveon", 2006)
+# comments = client.issue_comments("OnlifeHealth/liveon", 2006)
 
 puts comments.empty?
 

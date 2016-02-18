@@ -7,12 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= csrf_meta_tags %>
 </head>
-<body ng-app="">
+<body ng-app="pull-git-comments">
 
 <%= render 'partials/navbar' %>
 
 <%= yield %>
+<!--<div data-ng-view></div>-->
 
+<%= render 'templates/index' %>
+<%= render 'templates/about' %>
+<%= render 'templates/pull_comments' %>
 <%= render 'partials/login_form_modal' %>
 </body>
 </html>

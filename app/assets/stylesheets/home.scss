@@ -22,6 +22,10 @@ form {
   }
 }
 
+.export-link {
+  margin-right: 25px;
+}
+
 .comments {
   .media {
     border: thin solid #ddd;
@@ -31,6 +35,14 @@ form {
     position: relative;
     height: 8em;
 
+    &:hover {
+      background-color: #ddd;
+    }
+
+    img {
+      width: 80px;
+    }
+
     .time {
       position: absolute;
       top: 10px;
@@ -38,9 +50,13 @@ form {
       color: #666;
     }
 
-    &:hover {
-      background-color: #ddd;
+    .github-link {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      color: #666;
     }
+
   }
 }
 

@@ -51,5 +51,13 @@ group :development do
   gem 'font-awesome-rails'
 
   gem 'angularjs-rails', '~> 1.4', '>= 1.4.8'
+
+  gem 'pry'
+
+  gem 'pry-nav'
+
+  gem 'pry-rails'
+
+  gem 'responders', '~> 2.0'
 end
 

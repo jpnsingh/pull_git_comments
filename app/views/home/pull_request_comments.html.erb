@@ -1,12 +1,25 @@
-<div class="lead well">
+<div class="lead well" data-ng-controller="pullRequestController">
   <div class="row">
     <div class="col-md-6">
       <p>Pull Request: <%= @params[:repo] + '/' + @params[:id] %></p>
     </div>
-    <div class="pull-right">
-      <a href="#/export" title="Export to csv"><i class="fa fa-file-excel-o fa-lg"></i></a>
+    <div class="pull-right export-link">
+      <a href="javascript:void(0);" title="Export to csv" data-ng-click="export()"><i class="fa fa-file-excel-o fa-lg"></i></a>
     </div>
   </div>
+
+  <div class="media">
+    <div class="media-left">
+      <a href="#">
+        <img class="media-object" src="{{selectedPull.user.avatal_url}}&s=80">
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">{{selectedPull.user.login}}</h4>
+      {{selectedPull.body}}
+    </div>
+  </div>
+
 </div>
 
 <div class="row">
@@ -24,7 +37,12 @@
               <div class="time">
                 <small><cite><%= time_ago_in_words comment.created_at %> ago</cite></small>
               </div>
-              <%= comment.body %>
+              <div>
+                <%= comment.body %>
+              </div>
+              <div class="github-link">
+                <a class="btn btn-success btn-xs" href="<%= comment.html_url %>" target="_blank">View in Github</a>
+              </div>
             </div>
           </div>
       <% end %>

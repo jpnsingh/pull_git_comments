@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" data-ng-controller="HomeController">
   <section class="pull-request-input">
     <%= form_for :pullRequestInput, url: '/pull/comments', html: {class: 'form-horizontal'} do %>
         <section class="form-header">
@@ -6,29 +6,54 @@
         </section>
 
         <section class="form-body">
+          <!--<div class="form-group">-->
+            <!--<label for="inputRepo" class="col-sm-2 control-label">Repository Name</label>-->
+            <!--<div class="col-sm-10">-->
+              <!--<input type="text"-->
+                     <!--class="form-control"-->
+                     <!--id="inputRepo"-->
+                     <!--name="pull_request[repo]"-->
+                     <!--placeholder="Repository Name e.g. octocat/hello-world"-->
+                     <!--value=""-->
+                     <!--required>-->
+            <!--</div>-->
+          <!--</div>-->
           <div class="form-group">
-            <label for="inputRepo" class="col-sm-2 control-label">Repository Name</label>
-            <div class="col-sm-10">
-              <input type="text"
-                     class="form-control"
-                     id="inputRepo"
-                     name="pull_request[repo]"
-                     placeholder="Repository Name e.g. octocat/hello-world"
-                     value=""
-                     required>
+            <label for="inputRepo" class="col-sm-2 control-label">Repository</label>
+            <div class="col-sm-10" data-ng-hide="loadingRepos">
+              <input type="hidden" name="pull_request[repo]" value="{{selectedRepo.full_name}}">
+              <select class="form-control"
+                      id="inputRepo"
+                      data-ng-model="selectedRepo"
+                      data-ng-options="repo as repo.full_name for repo in repos"
+                      required></select>
             </div>
+            <div class="col-sm-10" data-ng-show="loadingRepos"><i class="fa fa-spinner fa-pulse"></i> Loading Repos...</div>
           </div>
+          <!--<div class="form-group">-->
+            <!--<label for="inputPullReqId" class="col-sm-2 control-label">Pull Request Id</label>-->
+            <!--<div class="col-sm-10">-->
+              <!--<input type="text"-->
+                     <!--class="form-control"-->
+                     <!--id="inputPullReqId"-->
+                     <!--name="pull_request[id]"-->
+                     <!--placeholder="Pull Request Id e.g. 1234"-->
+                     <!--value=""-->
+                     <!--required>-->
+            <!--</div>-->
+          <!--</div>-->
           <div class="form-group">
-            <label for="inputPullReqId" class="col-sm-2 control-label">Pull Request Id</label>
-            <div class="col-sm-10">
-              <input type="text"
-                     class="form-control"
-                     id="inputPullReqId"
-                     name="pull_request[id]"
-                     placeholder="Pull Request Id e.g. 1234"
-                     value=""
-                     required>
+            <label for="inputPullId" class="col-sm-2 control-label">Pull Request</label>
+            <div class="col-sm-10" data-ng-hide="loadingPulls">
+              <input type="hidden" name="pull_request[id]" value="{{selectedPull.number}}">
+              <select class="form-control"
+                      id="inputPullId"
+                      data-ng-disabled="!selectedRepo"
+                      data-ng-model="selectedPull"
+                      data-ng-options="pull as pull.number + ' - ' + pull.title + ' [' + pull.user.login + ']' for pull in pulls"
+                      required></select>
             </div>
+            <div class="col-sm-10" data-ng-show="loadingPulls"><i class="fa fa-spinner fa-pulse"></i> Loading Pulls...</div>
           </div>
         </section>
 
