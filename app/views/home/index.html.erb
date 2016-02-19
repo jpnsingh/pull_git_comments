@@ -46,6 +46,7 @@
             <label for="inputPullId" class="col-sm-2 control-label">Pull Request</label>
             <div class="col-sm-10" data-ng-hide="loadingPulls">
               <input type="hidden" name="pull_request[id]" value="{{selectedPull.number}}">
+              <input type="hidden" name="pull_request[pull]" value="{{selectedPull}}">
               <select class="form-control"
                       id="inputPullId"
                       data-ng-disabled="!selectedRepo"

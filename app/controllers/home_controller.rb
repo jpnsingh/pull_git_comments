@@ -14,6 +14,7 @@ class HomeController < ApplicationController
     client = authenticate_user
 
     @params = pull_request_params
+    @selected_pull_request = JSON.parse(@params[:pull])
     @comments = client.issue_comments(@params[:repo], @params[:id])
                     .concat(client.pull_request_comments(@params[:repo], @params[:id])).reverse
 
@@ -22,7 +23,7 @@ class HomeController < ApplicationController
 
   private
   def pull_request_params
-    params.require(:pull_request).permit(:repo, :id)
+    params.require(:pull_request).permit(:repo, :id, :pull)
   end
 
 end
