@@ -16,6 +16,9 @@
 !/log/.keep
 /tmp
 
+node_modules
+npm-debug.log
+
 # Rubymine
 .idea
 spec/javascripts/fixtures/rspec*

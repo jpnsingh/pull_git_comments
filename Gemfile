@@ -59,5 +59,9 @@ group :development do
   gem 'pry-rails'
 
   gem 'responders', '~> 2.0'
+
+  gem 'sprockets', '~> 3.5', '>= 3.5.2'
+
+  gem 'browserify-rails'
 end
 
