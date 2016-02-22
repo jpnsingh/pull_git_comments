@@ -1,17 +1,9 @@
 <div class="sing-in" data-ng-controller="loginController">
-  <div class="help">
-
-  </div>
-
+  <div class="help"></div>
   <div class="container">
-    <div class="alert alert-danger" data-ng-show="error">
-      {{error}}
-    </div>
-    <div class="logo">
-
-    </div>
+    <div class="alert alert-danger" data-ng-show="error">{{error}}</div>
+    <div class="logo"></div>
     <form name="loginForm">
-
       <div class="form-group">
         <label for="username">User Name</label>
         <input type="text"
@@ -20,7 +12,6 @@
                data-ng-model="username"
                required>
       </div>
-
       <div class="form-group">
         <label for="password">Password</label>
         <input type="password"
@@ -29,7 +20,6 @@
                data-ng-model="password"
                required>
       </div>
-
       <div class="form-group">
         <button id="loginButton"
                 class="btn btn-primary"
@@ -41,14 +31,12 @@
           </span>
         </button>
       </div>
-
       <div class="form-group">
         <a class="btn btn-primary"
            href="http://github.com/login/oauth/authorize?scope=user:email,repo&client_id=<%= @client_id %>">
           <span>Sign In With Github</span>
         </a>
       </div>
-
     </form>
   </div>
 </div>
