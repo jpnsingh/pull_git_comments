@@ -1,5 +1,5 @@
 module HomeHelper
   def authenticate_user
-    Octokit::Client.new(:access_token => "****")
+    Octokit::Client.new(:access_token => session[:access_token])
   end
 end

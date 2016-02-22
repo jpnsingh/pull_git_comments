@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
-  root 'home#index'
+  root 'sign_in#sign_in'
+
+  get '/sign_out' => 'sign_in#sign_out'
+
+  get '/authorize' => 'auth#authorize'
+
+  get '/dashboard' => 'home#dashboard'
 
   get '/about' => 'home#about'
 

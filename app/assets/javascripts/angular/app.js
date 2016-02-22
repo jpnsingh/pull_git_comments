@@ -1,6 +1,6 @@
 "use strict";
 
-let appModule = angular.module('pull-git-comments',
+angular.module('pull-git-comments',
     [
         'ngCookies',
         'ngRoute',

@@ -63,5 +63,7 @@ group :development do
   gem 'sprockets', '~> 3.5', '>= 3.5.2'
 
   gem 'browserify-rails'
+
+  gem 'rest-client', '~> 1.8'
 end
 

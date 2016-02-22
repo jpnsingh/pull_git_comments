@@ -7,9 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= csrf_meta_tags %>
 </head>
-<body data-ng-app="pull-git-comments">
+<body data-ng-app="pull-git-comments" data-ng-cloak="">
 
-<%= render 'partials/navbar' %>
+<% if @nav_bar %>
+    <%= render 'partials/navbar' %>
+<% end %>
 
 <%= yield %>
 <!--<div data-ng-view></div>-->
