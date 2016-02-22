@@ -18,6 +18,7 @@ class AuthController < ApplicationController
 
     access_token = JSON.parse(access_token_response)['access_token']
 
+    session[:signed_in] = true
     session[:access_token] = access_token
 
     # auth_result = JSON.parse(RestClient.get('https://api.github.com/user', {:params => {:access_token => access_token}}))

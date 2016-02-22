@@ -8,8 +8,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body data-ng-app="pull-git-comments" data-ng-cloak="">
+<% if session[:signed_in] %>
+    <%= render 'partials/navbar' %>
+<% end %>
 
-<%= render 'partials/navbar' %>
 
 <%= yield %>
 <!--<div data-ng-view></div>-->
