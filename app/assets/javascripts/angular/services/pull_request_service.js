@@ -2,8 +2,8 @@
 
 module.exports = angular.module('pull-git-comments.services.pullRequestService', [])
     .service('pullRequestService', [
-        '$http', 'gitConstants',
-        function ($http, gitConstants) {
+        '$http', 'gitConstants', 'authService',
+        function ($http, gitConstants, authService) {
 
             let self = this;
 
@@ -11,7 +11,7 @@ module.exports = angular.module('pull-git-comments.services.pullRequestService',
                 getPullsForRepo: function (repo) {
                     return $http.get(gitConstants.repo_pulls_url.replace(':repoName', repo.full_name), {
                             params: {
-                                access_token: gitConstants.access_token,
+                                access_token: authService.getAccessToken(),
                                 state: 'all'
                             }
                         })
@@ -44,4 +44,3 @@ module.exports = angular.module('pull-git-comments.services.pullRequestService',
             };
         }
     ]);
-

@@ -7,7 +7,7 @@ class HomeController < ApplicationController
       redirect_to root_path
     else
       puts "access_token: " + session[:access_token]
-      render 'home/index'
+      render 'home/dashboard'
     end
   end
 

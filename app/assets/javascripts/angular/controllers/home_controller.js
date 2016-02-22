@@ -3,8 +3,10 @@
 module.exports = angular.module('pull-git-comments.controllers.homeController', [])
     .controller('homeController',
         [
-            '$scope', '$http', '$cookies', 'repositoryService', 'pullRequestService',
-            function ($scope, $http, $cookies, repositoryService, pullRequestService) {
+            '$scope', '$http', '$cookies', 'repositoryService', 'pullRequestService', 'authService',
+            function ($scope, $http, $cookies, repositoryService, pullRequestService, authService) {
+                authService.setAccessToken($('#access_token').val());
+
                 $scope.loadingRepos = true;
                 repositoryService.getRepositories()
                     .then(function (repos) {
@@ -35,7 +37,6 @@ module.exports = angular.module('pull-git-comments.controllers.homeController', 
 
                 $scope.$watch('selectedPull', function (selectedPull) {
                     if (selectedPull) {
-                        //$cookies.put('selectedPull', selectedPull);
                         pullRequestService.setSelectedPull(selectedPull);
                     }
                 });
