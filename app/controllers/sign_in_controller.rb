@@ -4,6 +4,7 @@ class SignInController < ApplicationController
   CLIENT_SECRET = ENV['GH_CLIENT_SECRET']
 
   def sign_in
+    session[:signed_in] = nil
     session[:access_token] = nil
 
     @nav_bar = false
@@ -13,6 +14,7 @@ class SignInController < ApplicationController
   end
 
   def sign_out
+    session[:signed_in] = nil
     session[:access_token] = nil
 
     redirect_to root_path
