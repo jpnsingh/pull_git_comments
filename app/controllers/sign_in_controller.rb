@@ -7,8 +7,6 @@ class SignInController < ApplicationController
     session[:signed_in] = nil
     session[:access_token] = nil
 
-    @nav_bar = false
-
     @client_id = CLIENT_ID
     @client_secret = CLIENT_SECRET
   end

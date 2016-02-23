@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = angular.module('pull-git-comments.services.pullRequestService', [])
-    .service('pullRequestService', [
+module.exports = angular.module('pull-git-comments.services.gitPullRequestService', [])
+    .service('gitPullRequestService', [
         '$http', 'gitConstants', 'authService',
         function ($http, gitConstants, authService) {
             return {

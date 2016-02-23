@@ -1,10 +1,10 @@
 "use strict";
 
-module.exports = angular.module('pull-git-comments.controllers.homeController', [])
-    .controller('homeController',
+module.exports = angular.module('pull-git-comments.controllers.dashboardController', [])
+    .controller('dashboardController',
         [
-            '$scope', '$http', 'repositoryService', 'pullRequestService', 'authService',
-            function ($scope, $http, repositoryService, pullRequestService, authService) {
+            '$scope', '$http', 'repositoryService', 'gitPullRequestService', 'authService',
+            function ($scope, $http, repositoryService, gitPullRequestService, authService) {
                 authService.setAccessToken($('#access_token').val());
 
                 $scope.loadingRepos = true;
@@ -17,7 +17,7 @@ module.exports = angular.module('pull-git-comments.controllers.homeController', 
                 $scope.$watch('selectedRepo', function (repo) {
                     if (repo) {
                         $scope.loadingPulls = true;
-                        pullRequestService.getPullsForRepo(repo).then(function (pulls) {
+                        gitPullRequestService.getPullsForRepo(repo).then(function (pulls) {
                             $scope.loadingPulls = false;
                             $scope.pulls = pulls;
                         })
@@ -26,9 +26,9 @@ module.exports = angular.module('pull-git-comments.controllers.homeController', 
                 });
 
                 $scope.getComments = function (repo, pullId) {
-                    pullRequestService.getCommentsForRepoPull(repo, pullId)
+                    gitPullRequestService.getCommentsForRepoPull(repo, pullId)
                         .then(function (comments) {
-                            pullRequestService.setPullComments(comments);
+                            gitPullRequestService.setPullComments(comments);
                             window.location.href = '#repo/' + repo + '/pull/' + pullId;
                         }, function (response) {
 
@@ -37,7 +37,7 @@ module.exports = angular.module('pull-git-comments.controllers.homeController', 
 
                 $scope.$watch('selectedPull', function (selectedPull) {
                     if (selectedPull) {
-                        pullRequestService.setSelectedPull(selectedPull);
+                        gitPullRequestService.setSelectedPull(selectedPull);
                     }
                 });
             }
