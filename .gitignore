@@ -37,3 +37,6 @@ log/*.pid
 .ruby-gemset
 *.pid
 .versions.conf
+
+
+public/assets
