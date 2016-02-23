@@ -39,10 +39,6 @@ form {
       background-color: #ddd;
     }
 
-    img {
-      width: 80px;
-    }
-
     .time {
       position: absolute;
       top: 10px;
@@ -58,6 +54,10 @@ form {
     }
 
   }
+}
+
+.media img {
+  width: 80px;
 }
 
 .about {
