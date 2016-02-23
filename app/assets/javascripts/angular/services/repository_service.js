@@ -7,9 +7,9 @@ module.exports = angular.module('pull-git-comments.services.repositoryService', 
             return {
                 getRepositories: function () {
                     return $http.get(gitConstants.repo_url, {params: {access_token: authService.getAccessToken()}})
-                        .then((response) => {
+                        .then(function (response) {
                             return response.data;
-                        }, (response) => {
+                        }, function (response) {
                             return response.errors;
                         });
                 }

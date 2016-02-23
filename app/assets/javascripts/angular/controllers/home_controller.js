@@ -3,8 +3,8 @@
 module.exports = angular.module('pull-git-comments.controllers.homeController', [])
     .controller('homeController',
         [
-            '$scope', '$http', '$cookies', 'repositoryService', 'pullRequestService', 'authService',
-            function ($scope, $http, $cookies, repositoryService, pullRequestService, authService) {
+            '$scope', '$http', 'repositoryService', 'pullRequestService', 'authService',
+            function ($scope, $http, repositoryService, pullRequestService, authService) {
                 authService.setAccessToken($('#access_token').val());
 
                 $scope.loadingRepos = true;

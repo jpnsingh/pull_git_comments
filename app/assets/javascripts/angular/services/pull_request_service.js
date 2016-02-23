@@ -12,9 +12,9 @@ module.exports = angular.module('pull-git-comments.services.pullRequestService',
                                 state: 'all'
                             }
                         })
-                        .then((response) => {
+                        .then(function (response) {
                             return response.data;
-                        }, (response) => {
+                        }, function (response) {
                             return response.errors;
                         });
                 },

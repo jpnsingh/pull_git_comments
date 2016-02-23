@@ -2,7 +2,6 @@
 
 angular.module('pull-git-comments',
     [
-        'ngCookies',
         'ngRoute',
         'ui.router',
         require('./controllers').name,
