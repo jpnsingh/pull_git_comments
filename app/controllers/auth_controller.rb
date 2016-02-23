@@ -21,12 +21,6 @@ class AuthController < ApplicationController
     session[:signed_in] = true
     session[:access_token] = access_token
 
-    # auth_result = JSON.parse(RestClient.get('https://api.github.com/user', {:params => {:access_token => access_token}}))
-    #
-    # auth_result['private_emails'] = JSON.parse(RestClient.get('https://api.github.com/user/emails', {:params => {:access_token => access_token}}))
-    #
-    # @user_email = auth_result['private_emails']
-
     redirect_to '/dashboard'
   end
 

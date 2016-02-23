@@ -21,7 +21,6 @@ module.exports = angular.module('pull-git-comments.controllers.dashboardControll
                             $scope.loadingPulls = false;
                             $scope.pulls = pulls;
                         })
-
                     }
                 });
 
