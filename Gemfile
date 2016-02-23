@@ -10,8 +10,9 @@ gem 'rails', '4.2.5'
 gem 'bootstrap-sass', '~> 3.3.6'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+
+gem 'angularjs-rails', '~> 1.4', '>= 1.4.8'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -35,6 +36,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+group :assets do
+  gem 'angular-ui-bootstrap-rails', "~> 0.9.0"
+  gem 'therubyracer', :platform => :ruby
+  # Use Uglifier as compressor for JavaScript assets
+  gem 'uglifier', '>= 1.3.0'
+end
+
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
@@ -46,15 +55,9 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 end
 
-group :development, :production do
+group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-
-  gem 'octokit', '~> 4.2'
-
-  gem 'font-awesome-rails'
-
-  gem 'angularjs-rails', '~> 1.4', '>= 1.4.8'
 
   gem 'pry'
 
@@ -65,10 +68,6 @@ group :development, :production do
   gem 'responders', '~> 2.0'
 
   gem 'sprockets', '~> 3.5', '>= 3.5.2'
-
-  gem 'browserify-rails'
-
-  gem 'rest-client', '~> 1.8'
 end
 
 group :production do
@@ -77,3 +76,10 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'font-awesome-rails'
+
+gem 'octokit', '~> 4.2'
+
+gem 'browserify-rails'
+
+gem 'rest-client', '~> 1.8'
