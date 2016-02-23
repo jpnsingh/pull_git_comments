@@ -6,7 +6,6 @@ class HomeController < ApplicationController
     if session[:access_token].nil?
       redirect_to root_path
     else
-      puts "access_token: " + session[:access_token]
       render 'home/dashboard'
     end
   end
