@@ -1,5 +1,6 @@
 'use strict';
 
-angular.module(
-    'pull-git-comments.filters', []
+module.exports = angular.module('pull-git-comments.filters', [
+        require('./time_ago_filter').name
+    ]
 );

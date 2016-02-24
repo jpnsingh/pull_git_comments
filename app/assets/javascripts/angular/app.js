@@ -4,11 +4,10 @@ angular.module('pull-git-comments',
     [
         'ngRoute',
         'ui.router',
+        require('./constants').name,
         require('./controllers').name,
         require('./services').name,
         require('./directives').name,
-        'pull-git-comments.constants'
+        require('./filters').name
     ]
-).config(['$controllerProvider', function ($controllerProvider) {
-    $controllerProvider.allowGlobals();
-}]);
+);
