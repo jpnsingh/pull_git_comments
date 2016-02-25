@@ -1,9 +1,8 @@
 class HomeController < ApplicationController
-
-  include HomeHelper
+  include CommentsHelper
 
   def dashboard
-    if session[:access_token].nil?
+    if git_access_token.nil?
       redirect_to root_path
     else
       render 'home/dashboard'
@@ -15,12 +14,10 @@ class HomeController < ApplicationController
   end
 
   def comments
-    client = authenticate_user
+    @selected_pull_request = JSON.parse(pull_request_params[:pull])
+    $selected_pull_request = JSON.parse(pull_request_params[:pull])
 
-    @params = pull_request_params
-    @selected_pull_request = JSON.parse(@params[:pull])
-    @comments = client.issue_comments(@params[:repo], @params[:id])
-                    .concat(client.pull_request_comments(@params[:repo], @params[:id])).reverse
+    @comments = get_comments(pull_request_params[:repo], pull_request_params[:id])
 
     render 'home/pull_request_comments'
   end

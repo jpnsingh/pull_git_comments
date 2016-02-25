@@ -1,4 +1,5 @@
 class AuthController < ApplicationController
+  require 'rest-client'
 
   CLIENT_ID = ENV['GH_CLIENT_ID']
   CLIENT_SECRET = ENV['GH_CLIENT_SECRET']

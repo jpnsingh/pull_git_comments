@@ -72,3 +72,7 @@ form {
   margin-right: -50%;
   transform: translate(-50%, -50%);
 }
+
+.dropdown-menu {
+  min-width: 0px !important;
+}

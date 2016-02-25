@@ -14,13 +14,28 @@
       </div>
     </div>
     <div class="pull-right export-link">
-      <a class="btn btn-success btn-xs" href="<%= @selected_pull_request['html_url'] %>" target="_blank">
-        View in Github
-      </a>
-      |
-      <a href="javascript:void(0);" title="Export to csv" data-ng-click="export()">
-        <i class="fa fa-file-excel-o fa-lg"></i>
-      </a>
+      <div class="dropdown">
+        <button class="dropdown-toggle" type="button" data-toggle="dropdown">
+          <span><i class="fa fa-cog fa-lg"></i></span>
+        </button>
+        <ul class="dropdown-menu pull-left" role="menu">
+          <li>
+            <a href="<%= @selected_pull_request['html_url'] %>" target="_blank" title="View in Github">
+              <i class="fa fa-github fa-lg"></i>
+            </a>
+          </li>
+          <li>
+            <a href="/export/<%= @selected_pull_request['base']['repo']['full_name'] %>/<%= @selected_pull_request['number'] %>.csv" title="Export to CSV">
+              <i class="fa fa-file-o fa-lg"></i>
+            </a>
+          </li>
+          <li>
+            <a href="/export/<%= @selected_pull_request['base']['repo']['full_name'] %>/<%= @selected_pull_request['number'] %>.xls" title="Export to Excel">
+              <i class="fa fa-file-excel-o fa-lg"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -44,7 +59,9 @@
                 <%= comment.body %>
               </div>
               <div class="github-link">
-                <a class="btn btn-success btn-xs" href="<%= comment.html_url %>" target="_blank">View in Github</a>
+                <a class="btn btn-success btn-xs" href="<%= comment.html_url %>" target="_blank">
+                  <span><i class="fa fa-github fa-sm"></i> View in Github</span>
+                </a>
               </div>
             </div>
           </div>

@@ -2,10 +2,6 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-require 'octokit'
-
-require 'rest-client'
-
 require 'json'
 
 # Require the gems listed in Gemfile, including any gems
