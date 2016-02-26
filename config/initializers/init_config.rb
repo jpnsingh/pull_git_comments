@@ -1,0 +1,1 @@
+GIT_CONFIG = YAML.load_file("#{Rails.root}/config/git_config.yml")[Rails.env]
