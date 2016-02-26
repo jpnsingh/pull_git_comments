@@ -1,20 +1,21 @@
+require 'rest-client'
+
 class AuthController < ApplicationController
-  require 'rest-client'
 
   CLIENT_ID = ENV['GH_CLIENT_ID']
   CLIENT_SECRET = ENV['GH_CLIENT_SECRET']
-
-  def index
-    @client_id = CLIENT_ID
-    @client_secret = CLIENT_SECRET
-  end
+  ACCESS_TOKEN_URL = "https://github.com/login/oauth/access_token"
 
   def authorize
     session_code = params[:code]
 
     access_token_response = RestClient
-                                .post('https://github.com/login/oauth/access_token',
-                                      {:client_id => CLIENT_ID, :client_secret => CLIENT_SECRET, :code => session_code},
+                                .post(ACCESS_TOKEN_URL,
+                                      {
+                                          :client_id => CLIENT_ID,
+                                          :client_secret => CLIENT_SECRET,
+                                          :code => session_code
+                                      },
                                       :accept => :json)
 
     access_token = JSON.parse(access_token_response)['access_token']

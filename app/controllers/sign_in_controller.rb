@@ -4,14 +4,10 @@ class SignInController < ApplicationController
   CLIENT_SECRET = ENV['GH_CLIENT_SECRET']
 
   def sign_in
-    @client_id = CLIENT_ID
-    @client_secret = CLIENT_SECRET
-  end
-
-  def sign_out
     session[:signed_in] = nil
     session[:access_token] = nil
 
-    redirect_to root_path
+    @client_id = CLIENT_ID
+    @client_secret = CLIENT_SECRET
   end
 end

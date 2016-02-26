@@ -1,5 +1,6 @@
+require 'csv'
+
 module CsvHelper
-  require 'csv'
 
   def convert_to_csv (headers, comments, mappers, options = {})
     CSV.generate(options) do |csv|

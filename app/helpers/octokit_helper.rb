@@ -1,5 +1,6 @@
+require 'octokit'
+
 module OctokitHelper
-  require 'octokit'
 
   def git_access_token
     session[:access_token] || ''
