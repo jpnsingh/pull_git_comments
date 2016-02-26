@@ -1,11 +1,11 @@
 development:
-  client_id: 5ba88fa9f5f194be8b3b
-  client_secret: 654eb78c3b178764f240878d500aee8a478588f6
+  client_id: <%= ENV["GH_CLIENT_ID"] %>
+  client_secret: <%= ENV["GH_CLIENT_SECRET"] %>
   access_token_url: "https://github.com/login/oauth/access_token"
 
 test:
-  client_id: 5ba88fa9f5f194be8b3b
-  client_secret: 654eb78c3b178764f240878d500aee8a478588f6
+  client_id: <%= ENV["GH_CLIENT_ID"] %>
+  client_secret: <%= ENV["GH_CLIENT_SECRET"] %>
   access_token_url: "https://github.com/login/oauth/access_token"
 
 production:
