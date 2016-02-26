@@ -21,3 +21,43 @@
 
 en:
   hello: "Hello world"
+
+  layout:
+    application:
+      title: "Pull Git Comments"
+
+  sign_in:
+    user_name: "User Name"
+    passowrd: Password
+    sign_in: "Sign In"
+    signing_in: "Signing In..."
+    sign_in_with_github: "Sign in with GitHub"
+
+  nav:
+    toggle_nav: "Toggle navigation"
+    home: "Home"
+    about: "About"
+    sign_out: "Sign Out"
+
+  dashboard:
+    select_repo: "Select a repository and a respective pull request:"
+    repository: "Repository"
+    loading_repos: "Loading Repos..."
+    pull_request: "Pull Request"
+    loading_pulls: "Loading Pulls..."
+    show_review_comments: "Show Review Comments"
+
+  comments:
+    created: "created:"
+    commented: "commented:"
+    export_to_csv: "Export to CSV"
+    export_to_excel: "Export to Excel"
+    time_ago: "ago"
+    view_in_github: "View in GitHub"
+    no_comments_alert: "No one has commented here yet..."
+
+  about:
+    lead: "This Application is a utility for fetching comments from Pull Requests for GitHub Repositories."
+    para_1: 'This makes use of <a href="https://developer.github.com/" target="_blank">GitHub Developer APIs</a> to fetch public and/or private repositories and their respective pull request information.'
+    para_2: 'Then it uses <a href="https://octokit.github.io/" target="_blank">Octokit</a>, a Ruby toolkit for the Github API, in order to fetch various comments from the pull requests i.e. pull request comments, line comments etc..'
+
