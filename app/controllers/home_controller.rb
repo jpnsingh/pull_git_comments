@@ -13,18 +13,4 @@ class HomeController < ApplicationController
 
   end
 
-  def comments
-    @selected_pull_request = JSON.parse(pull_request_params[:pull])
-    $selected_pull_request = JSON.parse(pull_request_params[:pull])
-
-    @comments = get_comments(pull_request_params[:repo], pull_request_params[:id])
-
-    render 'home/pull_request_comments'
-  end
-
-  private
-  def pull_request_params
-    params.require(:pull_request).permit(:repo, :id, :pull)
-  end
-
 end

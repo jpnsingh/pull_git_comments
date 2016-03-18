@@ -1,0 +1,42 @@
+<div class="container">
+  <h2>Export Review Comments For a range of Pulls</h2>
+
+  <form action="" class="form-horizontal">
+    <div class="form-group col-md-6">
+      <label for="pullFrom" class="control-label">From</label>
+      <input type="number"
+             min="1"
+             class="form-control"
+             id="pullFrom"
+             data-ng-model="pullFrom"
+             placeholder="Pull Request From #...">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="pullTo" class="control-label">To</label>
+      <input type="number"
+             min="{{pullFrom}}"
+             class="form-control"
+             id="pullTo"
+             data-ng-model="pullTo"
+             placeholder="Pull Request To #...">
+    </div>
+
+    <div class="form-group form-footer">
+      <a href="/export/<%= @selected_repo %>/{{pullFrom}}/{{pullTo}}.csv"
+         class="btn btn-default"
+         data-ng-disabled="!pullFrom || !pullTo">
+        <i class="fa fa-file-o fa-lg"></i>
+        Export to CSV
+      </a>
+
+      <a href="/export/<%= @selected_repo %>/{{pullFrom}}/{{pullTo}}.xls"
+         class="btn btn-default"
+         data-ng-disabled="!pullFrom || !pullTo">
+        <i class="fa fa-file-excel-o fa-lg"></i>
+        Export to Excel
+      </a>
+    </div>
+
+  </form>
+</div>

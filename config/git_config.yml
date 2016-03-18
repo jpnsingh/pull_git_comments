@@ -2,6 +2,7 @@ development:
   client_id: <%= ENV["GH_CLIENT_ID"] %>
   client_secret: <%= ENV["GH_CLIENT_SECRET"] %>
   access_token_url: "https://github.com/login/oauth/access_token"
+  pull_request_url: "https://api.github.com/repos/#{org}/#{repo}/pulls/#{number}"
 
 test:
   client_id: <%= ENV["GH_CLIENT_ID"] %>

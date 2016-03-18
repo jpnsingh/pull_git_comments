@@ -2,17 +2,21 @@ Rails.application.routes.draw do
 
   root 'sign_in#sign_in'
 
-  get '/sign_out' => 'sign_out#sign_out'
-
   get '/authorize' => 'auth#authorize'
 
   get '/dashboard' => 'home#dashboard'
 
   get '/about' => 'home#about'
 
-  post '/pull/comments' => 'home#comments'
+  get '/repos/:org/:repo/pulls/:id/comments' => 'comments#comments'
 
   get '/export/:org/:repo/:id' => 'export#export'
+
+  get '/export/:org/:repo' => 'export#show'
+
+  get '/export/:org/:repo/:from/:to' => 'export#export_range'
+
+  get '/sign_out' => 'sign_out#sign_out'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

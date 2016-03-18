@@ -1,17 +1,22 @@
 <div class=" well" data-ng-controller="gitPullRequestController">
+  <input type="hidden" id="org" name="org" value="<%= @org %>">
+  <input type="hidden" id="repo" name="repo" value="<%= @repo %>">
+  <input type="hidden" id="number" name="number" value="<%= @number %>">
+  <input type="hidden" id="access_token" name="access_token" value="<%= git_access_token %>">
+
   <div class="row">
     <div class="col-md-8">
       <div class="media">
         <div class="media-left">
           <a href="#">
-            <img class="media-object" src="<%= @selected_pull_request['user']['avatar_url'] %>&s=80">
+            <img class="media-object" data-ng-src="{{selectedPull.user.avatar_url}}s=80">
           </a>
         </div>
         <div class="media-body">
           <h4 class="media-heading">
-            <strong><%= @selected_pull_request['user']['login'] %></strong> <%= t('comments.created') %>
+            <strong>{{selectedPull.user.login}}</strong> <%= t('comments.created') %>
           </h4>
-          <%= @selected_pull_request['body'] %>
+          {{selectedPull['body']}}
         </div>
       </div>
     </div>
@@ -22,17 +27,17 @@
         </button>
         <ul class="dropdown-menu pull-left" role="menu">
           <li>
-            <a href="<%= @selected_pull_request['html_url'] %>" target="_blank" title="<%= t('comments.view_in_github') %>">
+            <a href="{{selectedPull.html_url}}" target="_blank" title="<%= t('comments.view_in_github') %>">
               <i class="fa fa-github fa-lg"></i>
             </a>
           </li>
           <li>
-            <a href="/export/<%= @selected_pull_request['base']['repo']['full_name'] %>/<%= @selected_pull_request['number'] %>.csv" title="<%= t('comments.export_to_csv') %>">
+            <a href="/export/{{selectedPull.base.repo.full_name}}/{{selectedPull.number}}.csv" title="<%= t('comments.export_to_csv') %>">
               <i class="fa fa-file-o fa-lg"></i>
             </a>
           </li>
           <li>
-            <a href="/export/<%= @selected_pull_request['base']['repo']['full_name'] %>/<%= @selected_pull_request['number'] %>.xls" title="<%= t('comments.export_to_excel') %>">
+            <a href="/export/{{selectedPull.base.repo.full_name}}/{{selectedPull.number}}.xls" title="<%= t('comments.export_to_excel') %>">
               <i class="fa fa-file-excel-o fa-lg"></i>
             </a>
           </li>
@@ -54,6 +59,7 @@
             </div>
             <div class="media-body">
               <h4 class="media-heading"><strong><%= comment.user.login %></strong> <%= t('comments.commented') %></h4>
+
               <div class="time">
                 <small>
                   <cite>
