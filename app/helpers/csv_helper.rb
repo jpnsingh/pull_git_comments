@@ -2,15 +2,15 @@ require 'csv'
 
 module CsvHelper
 
-  def convert_to_csv (headers, comments, mappers, options = {})
+  def convert_to_csv (headers, comments, selected_pull, options = {})
     CSV.generate(options) do |csv|
       csv << headers
       comments.each do |comment|
         csv << [
-            @repo_full_name,
-            @pull_id,
-            hyperlink($selected_pull_request['html_url'], "#{@repo_full_name}/#{@pull_id}"),
-            $selected_pull_request['user']['login'],
+            selected_pull["base"]["repo"]["full_name"],
+            selected_pull["number"],
+            hyperlink(selected_pull["html_url"], "#{selected_pull["base"]["repo"]["full_name"]}/#{selected_pull["number"]}"),
+            selected_pull["user"]["login"],
             comment.user.login,
             comment.body,
             hyperlink(comment.html_url, "View in Github"),

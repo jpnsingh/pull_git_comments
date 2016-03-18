@@ -20,20 +20,13 @@ class ExportController < ApplicationController
 
     comments = get_comments(@repo_full_name, @pull_id)
 
-    # mappers = [
-    #     @repo_full_name,
-    #     @pull_id,
-    #     comment.user.login,
-    #     comment.user.login,
-    #     comment.body,
-    #     comment.created_at.strftime('%F'),
-    #     comment.created_at.strftime('%T')
-    # ]
+    selected_pull = JSON.parse(RestClient.get("https://api.github.com/repos/#{org}/#{repo}/pulls/#{@pull_id}",
+                                              {:params => {:access_token => session[:access_token]}}))
 
     respond_to do |format|
       format.html
-      format.csv { send_data convert_to_csv(column_headers, comments, []), filename: filename + ".csv" }
-      format.xls { send_data convert_to_csv(column_headers, comments, [], col_sep: "\t"), filename: filename + ".xls" }
+      format.csv { send_data convert_to_csv(column_headers, comments, selected_pull), filename: filename + ".csv" }
+      format.xls { send_data convert_to_csv(column_headers, comments, selected_pull, col_sep: "\t"), filename: filename + ".xls" }
     end
   end
 
