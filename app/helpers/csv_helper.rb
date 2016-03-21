@@ -9,7 +9,7 @@ module CsvHelper
         csv << [
             selected_pull["base"]["repo"]["full_name"],
             selected_pull["number"],
-            hyperlink(selected_pull["html_url"], "#{selected_pull["base"]["repo"]["full_name"]}/#{selected_pull["number"]}"),
+            hyperlink(comment.pull_request_url, "View in Github"),
             selected_pull["user"]["login"],
             comment.user.login,
             comment.body,
