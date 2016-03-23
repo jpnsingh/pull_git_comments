@@ -42,7 +42,9 @@ en:
   dashboard:
     select_repo: "Select a repository and a respective pull request:"
     repository: "Repository"
+    org: "Organization"
     loading_repos: "Loading Repos..."
+    loading_orgs: "Loading Orgs..."
     pull_request: "Pull Request"
     loading_pulls: "Loading Pulls..."
     show_review_comments: "Show Review Comments"
