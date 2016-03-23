@@ -1,9 +1,9 @@
 <div class="container">
-  <h2>Export Review Comments For a range of Pulls</h2>
+  <h2><%= t('export.export_heading') %></h2>
 
   <form action="" class="form-horizontal">
     <div class="form-group col-md-6">
-      <label for="pullFrom" class="control-label">From</label>
+      <label for="pullFrom" class="control-label"><%= t('export.pull_from') %></label>
       <input type="number"
              min="1"
              class="form-control"
@@ -13,7 +13,7 @@
     </div>
 
     <div class="form-group col-md-6">
-      <label for="pullTo" class="control-label">To</label>
+      <label for="pullTo" class="control-label"><%= t('export.pull_to') %></label>
       <input type="number"
              min="{{pullFrom}}"
              class="form-control"
@@ -27,14 +27,14 @@
          class="btn btn-default"
          data-ng-disabled="!pullFrom || !pullTo">
         <i class="fa fa-file-o fa-lg"></i>
-        Export to CSV
+        <%= t('export.export_to_csv') %>
       </a>
 
       <a href="/export/<%= @selected_repo %>/{{pullFrom}}/{{pullTo}}.xls"
          class="btn btn-default"
          data-ng-disabled="!pullFrom || !pullTo">
         <i class="fa fa-file-excel-o fa-lg"></i>
-        Export to Excel
+        <%= t('export.export_to_excel') %>
       </a>
     </div>
 

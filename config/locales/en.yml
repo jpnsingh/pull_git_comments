@@ -47,7 +47,15 @@ en:
     loading_orgs: "Loading Orgs..."
     pull_request: "Pull Request"
     loading_pulls: "Loading Pulls..."
+    export_review_comments: "Export Review Comments"
     show_review_comments: "Show Review Comments"
+
+  export:
+    export_heading: "Export Review Comments For a range of Pulls"
+    pull_from: "From"
+    pull_to: "To"
+    export_to_csv: "Export to CSV"
+    export_to_excel: "Export to Excel"
 
   comments:
     created: "created:"
