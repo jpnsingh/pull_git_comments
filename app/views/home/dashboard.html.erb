@@ -1,7 +1,7 @@
 <div class="container" data-ng-controller="dashboardController">
   <input type="hidden" id="access_token" name="access_token" value="<%= git_access_token %>">
   <section class="pull-request-input">
-    <%= form_for :pullRequestInput, url: '/pull/comments', html: {name: 'pullRequestInput', class: 'form-horizontal'} do %>
+    <%= form_for :pullRequestInputForm, url: '/pull/comments', html: {name: 'pullRequestInputForm', class: 'form-horizontal'} do %>
         <section class="form-header">
           <h3><%= t('dashboard.select_repo') %></h3>
         </section>
@@ -60,13 +60,19 @@
         </section>
 
         <section class="form-footer">
-          <a class="btn btn-success"
+          <a class="btn btn-success ga-event"
              href="/export/{{selectedRepo.full_name}}"
+             data-event-category="ExportReviewComments"
+             data-event-action="Click"
+             data-event-label="<%= t('dashboard.export_review_comments') %>"
              data-ng-disabled="!selectedRepo"><span><%= t('dashboard.export_review_comments') %></span></a>
 
-          <a class="btn btn-primary"
+          <a class="btn btn-primary ga-event"
              href="/repos/{{selectedRepo.full_name}}/pulls/{{selectedPull.number}}/comments"
-             data-ng-disabled="pullRequestInput.$invalid"><span><%= t('dashboard.show_review_comments') %></span></a>
+             data-event-category="SHowReviewComments"
+             data-event-action="Click"
+             data-event-label="<%= t('dashboard.show_review_comments') %>"
+             data-ng-disabled="pullRequestInputForm.$invalid"><span><%= t('dashboard.show_review_comments') %></span></a>
         </section>
     <% end %>
   </section>

@@ -9,10 +9,17 @@
 
   <!-- Google Analytics -->
   <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      (function (i, s, o, g, r, a, m) {
+          i.GoogleAnalyticsObject = o;
+          i[o] || (i[o] = function () {
+              (i[o].q = i[o].q || []).push(arguments)
+          });
+          i[o].l = +new Date;
+          a = s.createElement(g);
+          m = s.getElementsByTagName(g)[0];
+          a.src = r;
+          m.parentNode.insertBefore(a, m)
+      })(window, document, 'ga', 'script', '//www.google-analytics.com/analytics.js');
 
       ga('create', 'UA-76058076-1', 'auto');
       ga('send', 'pageview');
@@ -22,13 +29,20 @@
 </head>
 <body data-ng-app="pull-git-comments" data-ng-cloak="">
 <!-- Google Tag Manager -->
-<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-566LXL"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-566LXL');</script>
+<noscript>
+  <iframe src="//www.googletagmanager.com/ns.html?id=GTM-566LXL"
+          height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-566LXL');
+</script>
 <!-- End Google Tag Manager -->
 <% if session[:signed_in] %>
     <%= render 'partials/navbar' %>
