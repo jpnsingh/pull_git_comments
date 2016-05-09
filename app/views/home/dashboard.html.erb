@@ -63,14 +63,14 @@
           <a class="btn btn-success ga-event"
              href="/export/{{selectedRepo.full_name}}"
              data-event-category="ExportReviewComments"
-             data-event-action="Click"
+             data-event-action="Link Click"
              data-event-label="<%= t('dashboard.export_review_comments') %>"
              data-ng-disabled="!selectedRepo"><span><%= t('dashboard.export_review_comments') %></span></a>
 
           <a class="btn btn-primary ga-event"
              href="/repos/{{selectedRepo.full_name}}/pulls/{{selectedPull.number}}/comments"
-             data-event-category="SHowReviewComments"
-             data-event-action="Click"
+             data-event-category="ShowReviewComments"
+             data-event-action="Link Click"
              data-event-label="<%= t('dashboard.show_review_comments') %>"
              data-ng-disabled="pullRequestInputForm.$invalid"><span><%= t('dashboard.show_review_comments') %></span></a>
         </section>
