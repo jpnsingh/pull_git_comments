@@ -22,6 +22,9 @@
     // GA Event Tracking
     $(document).ready(function () {
       $('a.ga-event, button.ga-event').on('click', function () {
+        if (window.console)
+          window.console.log($(this).data('event-category') + ', ' + $(this).data('event-action') + ', ' + $(this).data('event-label'));
+
         window.ga('send', {
           hitType: 'event',
           eventCategory: $(this).data('event-category'),
