@@ -16,3 +16,4 @@
 //= require angular-route
 //= require angular/app
 //= require bootstrap-sprockets
+//= require analytics

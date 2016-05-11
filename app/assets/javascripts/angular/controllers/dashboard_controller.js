@@ -48,15 +48,6 @@ module.exports = angular.module('pull-git-comments.controllers.dashboardControll
             gitPullRequestService.setSelectedPull(selectedPull);
           }
         });
-
-        $("a.ga-event, button.ga-event").on("click", function () {
-          window.ga('send', {
-            hitType: 'event',
-            eventCategory: $(this).data("event-category"),
-            eventAction: $(this).data("event-action"),
-            eventLabel: $(this).data("event-label")
-          });
-        });
       }
     ]
 );
