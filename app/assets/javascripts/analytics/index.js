@@ -4,20 +4,20 @@
   'use strict';
 
   if (window.isGoogleAnalyticsOn) {
-    (function (G, o, O, g, l, e) {
-      G.GoogleAnalyticsObject = O;
-      G[O] = (G[O] || function () {
-        (G[O].q = G[O].q || []).push(arguments);
+    (function (i, s, o, g, r, a, m) {
+      i.GoogleAnalyticsObject = o;
+      i[o] || (i[o] = function () {
+        (i[o].q = i[o].q || []).push(arguments)
       });
-      G[O].l = +new Date();
-      l = o.createElement(g);
-      e = o.getElementsByTagName(g)[0];
-      l.src = ('https:' == o.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/analytics.js';
-      e.parentNode.insertBefore(l, e);
-    })(window, document, 'ga', 'script');
+      i[o].l = +new Date;
+      a = s.createElement(g);
+      m = s.getElementsByTagName(g)[0];
+      a.src = r;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'ga', 'script', '//www.google-analytics.com/analytics.js');
 
-    window.ga('create', window.gaTrackingId, 'auto');
-    window.ga('send', 'pageview');
+    ga('create', 'UA-76058076-1', 'auto');
+    ga('send', 'pageview');
 
     // GA Event Tracking
     $(document).ready(function () {
