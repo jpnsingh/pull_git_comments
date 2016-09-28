@@ -19,8 +19,6 @@ module CommentsHelper
                     .reverse
 
       comments.concat(comment) unless comment.empty?
-
-      binding.pry
     end
   end
 end
