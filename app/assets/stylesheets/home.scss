@@ -76,3 +76,7 @@ form {
 .dropdown-menu {
   min-width: 0px !important;
 }
+
+a[disabled="disabled"] {
+  pointer-events: none;
+}
